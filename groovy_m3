@@ -22,8 +22,7 @@ pipeline {
         stage ('package creation'){
             steps{
                 sh "mvn package -f mvnproj"
- 
-            }
+           }
         }
     }
 }
