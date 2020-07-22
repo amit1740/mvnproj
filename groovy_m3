@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    
+    stages{
+        stage('clone the gibhub repository and maven clean'){
+            steps{
+                
+                sh "git clone https://github.com/amit1740/mvnproj.git"
+                sh "mvn clean -f mvnproj"
+            }
+        }
+        stage ('test  the source code'){
+            steps{
+                sh "mvn test -f mvnproj"
+            }
+        }
+        stage ('compile the source code'){
+            steps{
+                sh "mvn compile -f mvnproj"
+            }
+        }
+        stage ('package creation'){
+            steps{
+                sh "mvn package -f mvnproj"
+ 
+            }
+        }
+    }
+}
